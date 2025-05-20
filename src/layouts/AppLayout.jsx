@@ -13,7 +13,7 @@ export default function AppLayout() {
                     <Outlet />
                 </Content>
                 <Footer style={{backgroundColor: "#fff"}}>
-                    ©2025
+                    <p className="regular14">©2025</p>
                 </Footer>
             </Layout>
         </Layout>
