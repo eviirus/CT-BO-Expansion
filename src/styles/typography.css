@@ -2,10 +2,26 @@
   font-size: 24px;
   line-height: 32px;
   font-weight: 400;
+  margin: 0;
+}
+
+.regular20 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.regular18 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .regular14 {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
+  margin: 0;
 }
