@@ -9,7 +9,7 @@ export default function Homepage() {
         <title>{pageTitle}</title>
         <meta name="title" content={pageTitle} />
       </Helmet>
-      <h1 className="regular24">Welcome to CT BO Expansion</h1>
+      <h1 className="regular28">Welcome to CT BO Expansion</h1>
       <p className="regular14">Use the side menu to select a tool</p>
     </>
   );
