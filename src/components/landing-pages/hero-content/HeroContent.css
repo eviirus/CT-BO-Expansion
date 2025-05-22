@@ -1,0 +1,14 @@
+.hero-content {
+  width: 100%;
+}
+
+.hero-content .content {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.hero-content .content .input {
+  width: 100%;
+}
