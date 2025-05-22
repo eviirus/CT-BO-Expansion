@@ -1,0 +1,16 @@
+- Excursion page generator
+    Hero: [Page title, Image link]
+    Body: [
+        {Heading type, Heading class name, Heading text},
+        {Paragraph type, Paragraph class name, Paragraph text/List item},
+        {Previous page title, Previous page link},
+        {Next page title, Next page link}
+    ]
+
+- Campaign page generator
+    Hero: [Image link]
+    Body: [
+        {Heading type, Heading class name, Heading text},
+        {Paragraph type, Paragraph class name, Paragraph text/List item},
+        {Accordion, Accordion content}
+    ]
