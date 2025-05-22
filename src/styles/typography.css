@@ -1,3 +1,10 @@
+.regular28 {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+
 .regular24 {
   font-size: 24px;
   line-height: 32px;
@@ -19,9 +26,14 @@
   margin: 0;
 }
 
-.regular14 {
+.regular14,
+label {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
   margin: 0;
+}
+
+.error {
+  color: red;
 }
