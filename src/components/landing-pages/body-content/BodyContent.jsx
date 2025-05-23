@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Button, Collapse } from "antd";
 
-const { Panel } = Collapse;
-
-export default function BodyContent() {
+export default function BodyContent({ content }) {
   const [rows, setRows] = useState([]);
 
   const addRow = () => {
@@ -12,18 +10,38 @@ export default function BodyContent() {
       {
         key: prev.length,
         title: `Row ${prev.length + 1}`,
-        content: "This is row",
       },
     ]);
+  };
+
+  const renderContent = () => {
+    const headingContent = content.find((c) => c.rowType === "heading");
+    const paragraphContent = content.find((c) => c.rowType === "paragraph");
+
+    return (
+      <>
+        {/* {headingContent && <BodyHeadingContent content={headingContent.items.headings}} */}
+        {/* {paragraphContent && <BodyParagraphContent content={paragraphContent.items.paragraphs}} */}
+        {headingContent && <p>heading row</p>}
+        {paragraphContent && <p>paragraph row</p>}
+      </>
+    );
   };
 
   return (
     <section className="body-content basic-col">
       <h2 className="regular24">Body content</h2>
       {rows.map((row) => (
-        <Collapse key={row.id}>
-          <Panel header={row.title}>{row.content}</Panel>
-        </Collapse>
+        <Collapse
+          key={row.key}
+          items={[
+            {
+              key: row.key,
+              label: row.title,
+              children: renderContent(),
+            },
+          ]}
+        />
       ))}
 
       <Button color="default" variant="outlined" onClick={() => addRow()}>
