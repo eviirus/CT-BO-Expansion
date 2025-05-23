@@ -4,3 +4,9 @@
   gap: 7px;
   width: 100%;
 }
+
+.basic-row {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}

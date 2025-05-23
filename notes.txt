@@ -1,0 +1,3 @@
+Body:
+    Each rowType (heading, paragraph, list) - should have a button with Add ${`rowType`}
+    
