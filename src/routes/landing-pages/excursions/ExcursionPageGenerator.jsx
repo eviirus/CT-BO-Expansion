@@ -6,6 +6,7 @@ import { generateErrorMessage } from "../../../constants/alertMessages";
 
 export default function ExcursionPageGenerator() {
   const heroRef = useRef();
+  const bodyContentRef = useRef();
 
   const content = [
     {
@@ -54,17 +55,20 @@ export default function ExcursionPageGenerator() {
 
   const handleSubmit = () => {
     const isHeroValid = heroRef.current?.validate?.();
+    const isBodyContentValid = bodyContentRef.current?.validate?.();
 
-    if (!isHeroValid) {
+    if (!isHeroValid || !isBodyContentValid) {
       toast.error(generateErrorMessage);
+    } else {
+      toast.success("good");
     }
   };
   return (
-    <main>
+    <>
       <h1 className="regular28">Excursion page generator</h1>
       <HeroContent ref={heroRef} pageTitle={true} imageLink={true} />
-      <BodyContent content={content} />
+      <BodyContent ref={bodyContentRef} content={content} />
       <button onClick={handleSubmit}>Submit</button>
-    </main>
+    </>
   );
 }
