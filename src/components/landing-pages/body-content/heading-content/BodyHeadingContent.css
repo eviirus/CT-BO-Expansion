@@ -1,0 +1,11 @@
+.heading-content {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+@media screen and (max-width: 1200px) {
+  .heading-content .basic-row .col-gap-only .ant-select {
+    width: 100px !important;
+  }
+}

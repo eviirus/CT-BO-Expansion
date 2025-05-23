@@ -5,6 +5,12 @@
   width: 100%;
 }
 
+.col-gap-only {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
 .basic-row {
   display: flex;
   width: 100%;
