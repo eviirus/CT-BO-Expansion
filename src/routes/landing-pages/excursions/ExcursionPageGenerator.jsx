@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import HeroContent from "../../../components/landing-pages/hero-content/HeroContent";
 import BodyContent from "../../../components/landing-pages/body-content/BodyContent";
 import PagePrevNextLinking from "../../../components/landing-pages/page-prev-next-linking/PagePrevNextLinking";
@@ -8,11 +8,15 @@ import {
   generateSuccessMessage,
 } from "../../../constants/alertMessages";
 import { Button } from "antd";
+import { CreateExcursionPage } from "../../../generators/landing-pages/create-excursion-page/CreateExcursionPage";
+import CodeDisplay from "../../../components/code-display/CodeDisplay";
 
 export default function ExcursionPageGenerator() {
   const heroRef = useRef();
   const bodyContentRef = useRef();
   const pagePrevNextLinkingRef = useRef();
+  const [generatedHtml, setGeneratedHtml] = useState("");
+  const codeDisplayRef = useRef(null);
 
   const content = [
     {
@@ -79,6 +83,18 @@ export default function ExcursionPageGenerator() {
     console.log("bodyContentValues", bodyContentValues);
     console.log("pagePrevNextLinkingValues", pagePrevNextLinkingValues);
 
+    const excursionPageHtml = CreateExcursionPage({
+      heroContent: heroRefValues,
+      bodyContent: bodyContentValues,
+      pagePrevNextLinkingContent: pagePrevNextLinkingValues,
+    });
+
+    setGeneratedHtml(excursionPageHtml);
+
+    setTimeout(() => {
+      codeDisplayRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+
     toast.success(generateSuccessMessage);
   };
   return (
@@ -94,6 +110,9 @@ export default function ExcursionPageGenerator() {
       >
         Generate excursion page
       </Button>
+      {generatedHtml && (
+        <CodeDisplay content={generatedHtml} scrollRef={codeDisplayRef} />
+      )}
     </>
   );
 }
