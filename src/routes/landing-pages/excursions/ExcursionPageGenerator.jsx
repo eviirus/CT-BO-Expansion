@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useRef, useState } from "react";
 import HeroContent from "../../../components/landing-pages/hero-content/HeroContent";
 import BodyContent from "../../../components/landing-pages/body-content/BodyContent";
@@ -12,6 +13,7 @@ import { CreateExcursionPage } from "../../../generators/landing-pages/create-ex
 import CodeDisplay from "../../../components/code-display/CodeDisplay";
 
 export default function ExcursionPageGenerator() {
+  const pageTitle = "Excursion page generator";
   const heroRef = useRef();
   const bodyContentRef = useRef();
   const pagePrevNextLinkingRef = useRef();
@@ -95,6 +97,10 @@ export default function ExcursionPageGenerator() {
   };
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="title" content={pageTitle} />
+      </Helmet>
       <h1 className="regular28">Excursion page generator</h1>
       <HeroContent ref={heroRef} pageTitle={true} imageLink={true} />
       <BodyContent ref={bodyContentRef} content={content} />
