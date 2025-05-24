@@ -32,7 +32,7 @@ const PagePrevNextLinking = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     validate: () => {
       const newErrors = {};
-      const urlRegex = /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm;
+      const urlRegex = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
 
       if (values.prevPageTitle.trim() !== "") {
         if (values.prevPageLink.trim() === "") {

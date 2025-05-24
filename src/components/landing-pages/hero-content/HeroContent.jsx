@@ -14,7 +14,7 @@ const HeroContent = forwardRef(({ pageTitle, imageLink }, ref) => {
       const newErrors = {};
 
       if (imageLink && values.imageLink.trim() !== "") {
-        const urlRegex = /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm;
+        const urlRegex = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
         if (!urlRegex.test(values.imageLink)) {
           newErrors.imageLink = "Please enter a valid URL";
         }
