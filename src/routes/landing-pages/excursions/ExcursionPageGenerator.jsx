@@ -79,10 +79,6 @@ export default function ExcursionPageGenerator() {
     const pagePrevNextLinkingValues =
       pagePrevNextLinkingRef.current?.getValues?.();
 
-    console.log("heroRefValues", heroRefValues);
-    console.log("bodyContentValues", bodyContentValues);
-    console.log("pagePrevNextLinkingValues", pagePrevNextLinkingValues);
-
     const excursionPageHtml = CreateExcursionPage({
       heroContent: heroRefValues,
       bodyContent: bodyContentValues,
