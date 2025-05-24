@@ -3,7 +3,10 @@ import HeroContent from "../../../components/landing-pages/hero-content/HeroCont
 import BodyContent from "../../../components/landing-pages/body-content/BodyContent";
 import PagePrevNextLinking from "../../../components/landing-pages/page-prev-next-linking/PagePrevNextLinking";
 import { toast } from "react-toastify";
-import { generateErrorMessage } from "../../../constants/alertMessages";
+import {
+  generateErrorMessage,
+  generateSuccessMessage,
+} from "../../../constants/alertMessages";
 import { Button } from "antd";
 
 export default function ExcursionPageGenerator() {
@@ -62,14 +65,21 @@ export default function ExcursionPageGenerator() {
     const isPagePrevNextLinkingValid =
       pagePrevNextLinkingRef.current?.validate?.();
 
-    console.log(isHeroValid, isBodyValid, isPagePrevNextLinkingValid);
-
     if (!isHeroValid || !isBodyValid || !isPagePrevNextLinkingValid) {
       toast.error(generateErrorMessage);
       return;
     }
 
-    toast.success("good");
+    const heroRefValues = heroRef.current?.getValues?.();
+    const bodyContentValues = bodyContentRef.current?.getValues?.();
+    const pagePrevNextLinkingValues =
+      pagePrevNextLinkingRef.current?.getValues?.();
+
+    console.log("heroRefValues", heroRefValues);
+    console.log("bodyContentValues", bodyContentValues);
+    console.log("pagePrevNextLinkingValues", pagePrevNextLinkingValues);
+
+    toast.success(generateSuccessMessage);
   };
   return (
     <>

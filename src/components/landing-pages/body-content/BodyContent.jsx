@@ -28,6 +28,25 @@ const BodyContent = forwardRef(({ content }, ref) => {
       }
       return true;
     },
+
+    getValues: () => {
+      const values = {
+        heading: {},
+        paragraph: {},
+      };
+      for (const key in bodyHeadingContent.current) {
+        if (bodyHeadingContent.current[key]?.getValues) {
+          values.heading[key] = bodyHeadingContent.current[key].getValues();
+        }
+      }
+
+      for (const key in bodyParagraphContent.current) {
+        if (bodyParagraphContent.current[key]?.getValues) {
+          values.paragraph[key] = bodyParagraphContent.current[key].getValues();
+        }
+      }
+      return values;
+    },
   }));
 
   const handleAddRow = () => {

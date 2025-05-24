@@ -35,11 +35,21 @@ const BodyParagraphContent = forwardRef(({ content }, ref) => {
       }
 
       setErrors(newError);
-      console.log(errors.type);
       return (
         Object.keys(newError.type || {}).length === 0 &&
         Object.keys(newError.text || {}).length === 0
       );
+    },
+    getValues: () => {
+      const values = {};
+      rows.forEach((row) => {
+        values[row.key] = {
+          type: selectedType[row.key],
+          class: selectedClass[row.key],
+          text: text[row.key],
+        };
+      });
+      return values;
     },
   }));
 

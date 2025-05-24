@@ -59,6 +59,8 @@ const PagePrevNextLinking = forwardRef((props, ref) => {
       setErrors(newErrors);
       return Object.keys(newErrors).length === 0;
     },
+
+    getValues: () => values,
   }));
 
   return (

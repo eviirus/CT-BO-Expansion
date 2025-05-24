@@ -29,6 +29,8 @@ const HeroContent = forwardRef(({ pageTitle, imageLink }, ref) => {
       setErrors(newErrors);
       return Object.keys(newErrors).length === 0;
     },
+
+    getValues: () => values,
   }));
 
   const handleChange = (key, value) => {
