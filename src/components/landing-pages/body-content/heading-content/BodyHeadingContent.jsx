@@ -1,5 +1,5 @@
 import { Select, Input, Button } from "antd";
-import "./BodyHeadingContent.css";
+import "../BodyContent.css";
 import { useState, forwardRef, useImperativeHandle } from "react";
 import { useRows } from "../../../../hooks/useRows";
 

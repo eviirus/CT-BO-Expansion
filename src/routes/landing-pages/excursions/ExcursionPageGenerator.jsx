@@ -55,14 +55,14 @@ export default function ExcursionPageGenerator() {
 
   const handleSubmit = () => {
     const isHeroValid = heroRef.current?.validate?.();
-    const isBodyContentValid = bodyContentRef.current?.validate?.();
+    const bodyValidation = bodyContentRef.current?.validate?.();
 
-    if (!isHeroValid || !isBodyContentValid) {
+    if (!isHeroValid || !bodyValidation) {
       toast.error(generateErrorMessage);
       return;
-    } else {
-      toast.success("good");
     }
+
+    toast.success("good");
   };
   return (
     <>

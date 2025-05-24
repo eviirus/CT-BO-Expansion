@@ -1,5 +1,6 @@
 import { Button, Collapse, Tooltip } from "antd";
 import BodyHeadingContent from "./heading-content/BodyHeadingContent";
+import BodyParagraphContent from "./paragraph-content/BodyParagraphContent";
 import "./BodyContent.css";
 import { useRows } from "../../../hooks/useRows";
 import { DeleteOutlined } from "@ant-design/icons";
@@ -7,6 +8,7 @@ import { useRef, useImperativeHandle, forwardRef } from "react";
 
 const BodyContent = forwardRef(({ content }, ref) => {
   const bodyHeadingContent = useRef({});
+  const bodyParagraphContent = useRef({});
   const { rows, addRow, removeRow } = useRows();
 
   useImperativeHandle(ref, () => ({
@@ -14,6 +16,13 @@ const BodyContent = forwardRef(({ content }, ref) => {
       for (const key in bodyHeadingContent.current) {
         if (bodyHeadingContent.current[key]?.validate) {
           const valid = bodyHeadingContent.current[key].validate();
+          if (!valid) return false;
+        }
+      }
+
+      for (const key in bodyParagraphContent.current) {
+        if (bodyParagraphContent.current[key]?.validate) {
+          const valid = bodyParagraphContent.current[key].validate();
           if (!valid) return false;
         }
       }
@@ -50,8 +59,12 @@ const BodyContent = forwardRef(({ content }, ref) => {
             content={headingContent.items.headings}
           />
         )}
-        {/* {paragraphContent && <BodyParagraphContent content={paragraphContent.items.paragraphs}} */}
-        {paragraphContent && <p>paragraph row</p>}
+        {paragraphContent && (
+          <BodyParagraphContent
+            ref={(el) => (bodyParagraphContent.current[rowKey] = el)}
+            content={paragraphContent.items.paragraphs}
+          />
+        )}
       </>
     );
   };
