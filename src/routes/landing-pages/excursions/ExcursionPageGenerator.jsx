@@ -4,6 +4,7 @@ import BodyContent from "../../../components/landing-pages/body-content/BodyCont
 import PagePrevNextLinking from "../../../components/landing-pages/page-prev-next-linking/PagePrevNextLinking";
 import { toast } from "react-toastify";
 import { generateErrorMessage } from "../../../constants/alertMessages";
+import { Button } from "antd";
 
 export default function ExcursionPageGenerator() {
   const heroRef = useRef();
@@ -76,7 +77,13 @@ export default function ExcursionPageGenerator() {
       <HeroContent ref={heroRef} pageTitle={true} imageLink={true} />
       <BodyContent ref={bodyContentRef} content={content} />
       <PagePrevNextLinking ref={pagePrevNextLinkingRef} />
-      <button onClick={handleSubmit}>Submit</button>
+      <Button
+        onClick={handleSubmit}
+        type="primary"
+        style={{ marginTop: "20px", width: "100%" }}
+      >
+        Generate excursion page
+      </Button>
     </>
   );
 }
