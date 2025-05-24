@@ -11,7 +11,7 @@ const BodyHeadingContent = forwardRef(({ content }, ref) => {
   const [classes, setClasses] = useState({});
   const [text, setText] = useState({});
   const { rows, addRow, removeRow } = useRows();
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({ type: {}, text: {} });
 
   const types = content.map((item) => ({
     label: item.type,

@@ -59,6 +59,7 @@ export default function ExcursionPageGenerator() {
 
     if (!isHeroValid || !isBodyContentValid) {
       toast.error(generateErrorMessage);
+      return;
     } else {
       toast.success("good");
     }
