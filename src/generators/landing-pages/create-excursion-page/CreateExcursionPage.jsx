@@ -73,7 +73,7 @@ export const CreateExcursionPage = ({
     html: `
   ${CreateExcursionPageStyles}
     <section class="excursion-main-container">
-      <span class="excursion-heading">${pageTitle}</span>
+      <h1 class="excursion-heading">${pageTitle}</h1>
       <div class="excursion-image-container">
         <img
           src="${imageLink}"

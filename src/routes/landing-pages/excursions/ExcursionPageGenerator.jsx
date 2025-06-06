@@ -26,10 +26,6 @@ export default function ExcursionPageGenerator() {
       items: {
         headings: [
           {
-            type: "h1",
-            class: "",
-          },
-          {
             type: "h2",
             class: "",
           },
