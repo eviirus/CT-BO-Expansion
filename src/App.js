@@ -10,6 +10,9 @@ import AppLayout from "./layouts/AppLayout";
 const ExcursionPageGenerator = lazy(() =>
   import("./routes/landing-pages/excursions/ExcursionPageGenerator")
 );
+const CardsWithOffers = lazy(() =>
+  import("./routes/widgets/static-widget-generator/CardsWithOffers")
+);
 
 function App() {
   return (
@@ -24,6 +27,11 @@ function App() {
                   path="excursion-page-generator"
                   element={<ExcursionPageGenerator />}
                 />
+              </Route>
+            </Route>
+            <Route path="widgets">
+              <Route path="static-widget-generator">
+                <Route path="cards-with-offers" element={<CardsWithOffers />} />
               </Route>
             </Route>
           </Route>
