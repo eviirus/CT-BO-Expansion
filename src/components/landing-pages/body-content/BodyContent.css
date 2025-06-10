@@ -3,6 +3,10 @@
   margin-bottom: 20px;
 }
 
+.body-content .ant-collapse .ant-collapse-item .ant-collapse-header {
+  align-items: center;
+}
+
 .heading-content,
 .paragraph-content {
   display: flex;
