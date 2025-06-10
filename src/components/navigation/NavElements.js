@@ -1,4 +1,4 @@
-import { FileAddOutlined, HomeOutlined } from "@ant-design/icons";
+import { FileAddOutlined, HomeOutlined, EditOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 export const NavElements = [
@@ -11,12 +11,12 @@ export const NavElements = [
     type: "divider",
   },
   {
-    key: "grp",
+    key: "grp1",
     label: "Landing pages",
     type: "group",
     children: [
       {
-        key: "g1",
+        key: "g",
         label: "Excursions",
         icon: <FileAddOutlined />,
         children: [
@@ -34,5 +34,27 @@ export const NavElements = [
   },
   {
     type: "divider",
+  },
+  {
+    key: "grp2",
+    label: "Widgets",
+    type: "group",
+    children: [
+      {
+        key: "g2",
+        label: "Static widget generator",
+        icon: <EditOutlined />,
+        children: [
+          {
+            key: "2",
+            label: (
+              <Link to="/widgets/static-widget-generator/cards-with-offers">
+                Cards with offers
+              </Link>
+            ),
+          },
+        ],
+      },
+    ],
   },
 ];
