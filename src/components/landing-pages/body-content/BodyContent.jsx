@@ -1,10 +1,10 @@
-import { Button, Collapse, Tooltip } from "antd";
+import { Button, Collapse } from "antd";
 import BodyHeadingContent from "./heading-content/BodyHeadingContent";
 import BodyParagraphContent from "./paragraph-content/BodyParagraphContent";
 import "./BodyContent.css";
 import { useRows } from "../../../hooks/useRows";
-import { DeleteOutlined } from "@ant-design/icons";
 import { useRef, useImperativeHandle, forwardRef } from "react";
+import RemoveButton from "../../buttons/RemoveButton";
 
 const BodyContent = forwardRef(({ content }, ref) => {
   const bodyHeadingContent = useRef({});
@@ -53,19 +53,6 @@ const BodyContent = forwardRef(({ content }, ref) => {
     addRow({ title: `Row ${rows.length + 1}` });
   };
 
-  const removeButton = (key) => {
-    return (
-      <Tooltip title="Remove row" placement="left">
-        <Button
-          icon={<DeleteOutlined />}
-          onClick={() => removeRow(key)}
-          color="red"
-          variant="outlined"
-        ></Button>
-      </Tooltip>
-    );
-  };
-
   const renderContent = (rowKey) => {
     const headingContent = content.find((c) => c.rowType === "heading");
     const paragraphContent = content.find((c) => c.rowType === "paragraph");
@@ -100,7 +87,7 @@ const BodyContent = forwardRef(({ content }, ref) => {
               key: row.key,
               label: row.title,
               children: renderContent(row.key),
-              extra: removeButton(row.key),
+              extra: <RemoveButton rowKey={row.key} removeRow={removeRow} />,
             },
           ]}
         />
