@@ -3,6 +3,7 @@ import "../BodyContent.css";
 import { useState, forwardRef, useImperativeHandle } from "react";
 import { useRows } from "../../../../hooks/useRows";
 import { useTypeChange } from "../../../../hooks/useTypeChange";
+import { useTextChange } from "../../../../hooks/useTextChange";
 
 const { TextArea } = Input;
 
@@ -19,6 +20,11 @@ const BodyParagraphContent = forwardRef(({ content }, ref) => {
     setSelectedType,
     setErrors,
     setClasses,
+  });
+
+  const { handleTextChange } = useTextChange({
+    setText,
+    setErrors,
   });
 
   const types = content.map((item) => ({
@@ -60,17 +66,6 @@ const BodyParagraphContent = forwardRef(({ content }, ref) => {
       return values;
     },
   }));
-
-  const handleTextChange = (key, textValue) => {
-    setText((prev) => ({ ...prev, [key]: textValue }));
-    setErrors((prev) => ({
-      ...prev,
-      text: {
-        ...(prev.text || {}),
-        [key]: "",
-      },
-    }));
-  };
 
   return (
     <section className="paragraph-content">
