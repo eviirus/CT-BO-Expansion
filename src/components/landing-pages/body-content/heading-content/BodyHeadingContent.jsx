@@ -2,6 +2,7 @@ import { Select, Input, Button } from "antd";
 import "../BodyContent.css";
 import { useState, forwardRef, useImperativeHandle } from "react";
 import { useRows } from "../../../../hooks/useRows";
+import { useTypeChange } from "../../../../hooks/useTypeChange";
 
 const { TextArea } = Input;
 
@@ -12,6 +13,13 @@ const BodyHeadingContent = forwardRef(({ content }, ref) => {
   const [text, setText] = useState({});
   const { rows, addRow, removeRow } = useRows();
   const [errors, setErrors] = useState({ type: {}, text: {} });
+
+  const { handleTypeChange } = useTypeChange({
+    content,
+    setSelectedType,
+    setErrors,
+    setClasses,
+  });
 
   const types = content.map((item) => ({
     label: item.type,
@@ -54,25 +62,25 @@ const BodyHeadingContent = forwardRef(({ content }, ref) => {
     },
   }));
 
-  const handleTypeChange = (key, typeValue) => {
-    setSelectedType((prev) => ({ ...prev, [key]: typeValue }));
-    setErrors((prev) => ({
-      ...prev,
-      type: {
-        ...(prev.type || {}),
-        [key]: "",
-      },
-    }));
+  // const handleTypeChange = (key, typeValue) => {
+  //   setSelectedType((prev) => ({ ...prev, [key]: typeValue }));
+  //   setErrors((prev) => ({
+  //     ...prev,
+  //     type: {
+  //       ...(prev.type || {}),
+  //       [key]: "",
+  //     },
+  //   }));
 
-    const rowClasses = content
-      .filter((item) => item.type === typeValue && item.class !== "")
-      .map((item) => ({
-        label: item.class,
-        value: item.class,
-      }));
+  //   const rowClasses = content
+  //     .filter((item) => item.type === typeValue && item.class !== "")
+  //     .map((item) => ({
+  //       label: item.class,
+  //       value: item.class,
+  //     }));
 
-    setClasses((prev) => ({ ...prev, [key]: rowClasses }));
-  };
+  //   setClasses((prev) => ({ ...prev, [key]: rowClasses }));
+  // };
 
   const handleTextChange = (key, textValue) => {
     setText((prev) => ({ ...prev, [key]: textValue }));
