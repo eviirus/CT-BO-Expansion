@@ -1,12 +1,12 @@
 import { useCallback } from "react";
 
-export const useTextChange = ({ setText, setErrors }) => {
+export const useTextChange = ({ setText, setErrors, field = "text" }) => {
   const handleTextChange = useCallback(
     (key, textValue) => {
       setText((prev) => ({ ...prev, [key]: textValue }));
       setErrors((prev) => ({
         ...prev,
-        text: {
+        [field]: {
           ...(prev.text || {}),
           [key]: "",
         },
