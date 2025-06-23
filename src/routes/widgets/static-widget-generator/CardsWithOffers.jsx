@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useRef, useState } from "react";
 import WidgetContent from "../../../components/widgets/static-widget-generator/WidgetContent";
-import { toast } from "react-toastify";
+import { ShowMessage } from "../../../utils/ShowMessage";
 import {
   generateErrorMessage,
   generateSuccessMessage,
@@ -14,6 +14,7 @@ export default function ExcursionPageGenerator() {
   const widgetContentRef = useRef();
   const [generatedHtml, setGeneratedHtml] = useState("");
   const codeDisplayRef = useRef(null);
+  const { contextHolder, showError, showSuccess } = ShowMessage();
 
   const content = [
     {
@@ -65,7 +66,7 @@ export default function ExcursionPageGenerator() {
   const handleSubmit = () => {
     const isWidgetContentValid = widgetContentRef.current?.validate?.();
     if (!isWidgetContentValid) {
-      toast.error(generateErrorMessage);
+      showError(generateErrorMessage);
       return;
     }
     const widgetContentValues = widgetContentRef.current?.getValues?.();
@@ -79,10 +80,11 @@ export default function ExcursionPageGenerator() {
     // setTimeout(() => {
     //   codeDisplayRef.current?.scrollIntoView({ behavior: "smooth" });
     // }, 100);
-    toast.success(generateSuccessMessage);
+    showSuccess(generateSuccessMessage);
   };
   return (
     <>
+      {contextHolder}
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="title" content={pageTitle} />

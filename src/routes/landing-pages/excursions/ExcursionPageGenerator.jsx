@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import HeroContent from "../../../components/landing-pages/hero-content/HeroContent";
 import BodyContent from "../../../components/landing-pages/body-content/BodyContent";
 import PagePrevNextLinking from "../../../components/landing-pages/page-prev-next-linking/PagePrevNextLinking";
-import { toast } from "react-toastify";
 import {
   generateErrorMessage,
   generateSuccessMessage,
@@ -11,6 +10,7 @@ import {
 import { Button } from "antd";
 import { CreateExcursionPage } from "../../../generators/landing-pages/create-excursion-page/CreateExcursionPage";
 import CodeDisplay from "../../../components/code-display/CodeDisplay";
+import { ShowMessage } from "../../../utils/ShowMessage";
 
 export default function ExcursionPageGenerator() {
   const pageTitle = "Excursion page generator";
@@ -19,6 +19,7 @@ export default function ExcursionPageGenerator() {
   const pagePrevNextLinkingRef = useRef();
   const [generatedHtml, setGeneratedHtml] = useState("");
   const codeDisplayRef = useRef(null);
+  const { contextHolder, showError, showSuccess } = ShowMessage();
 
   const content = [
     {
@@ -68,7 +69,7 @@ export default function ExcursionPageGenerator() {
       pagePrevNextLinkingRef.current?.validate?.();
 
     if (!isHeroValid || !isBodyValid || !isPagePrevNextLinkingValid) {
-      toast.error(generateErrorMessage);
+      showError(generateErrorMessage);
       return;
     }
 
@@ -89,10 +90,11 @@ export default function ExcursionPageGenerator() {
       codeDisplayRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
 
-    toast.success(generateSuccessMessage);
+    showSuccess(generateSuccessMessage);
   };
   return (
     <>
+      {contextHolder}
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="title" content={pageTitle} />

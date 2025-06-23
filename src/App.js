@@ -1,9 +1,6 @@
 import { HelmetProvider } from "react-helmet-async";
 import { Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import Homepage from "./routes/Homepage";
 import AppLayout from "./layouts/AppLayout";
 
@@ -37,7 +34,6 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
-      <ToastContainer />
     </HelmetProvider>
   );
 }
