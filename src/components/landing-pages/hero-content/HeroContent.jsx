@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import { Input } from "antd";
 import "./HeroContent.css";
+import { urlRegex } from "../../../constants/urlRegex";
 
 const HeroContent = forwardRef(({ pageTitle, imageLink }, ref) => {
   const [errors, setErrors] = useState({});
@@ -14,7 +15,6 @@ const HeroContent = forwardRef(({ pageTitle, imageLink }, ref) => {
       const newErrors = {};
 
       if (imageLink && values.imageLink.trim() !== "") {
-        const urlRegex = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
         if (!urlRegex.test(values.imageLink)) {
           newErrors.imageLink = "Please enter a valid URL";
         }

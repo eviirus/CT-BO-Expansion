@@ -1,5 +1,6 @@
 import { Input } from "antd";
 import { forwardRef, useImperativeHandle, useState } from "react";
+import { urlRegex } from "../../../constants/urlRegex";
 
 const PagePrevNextLinking = forwardRef((props, ref) => {
   const [errors, setErrors] = useState({});
@@ -32,7 +33,6 @@ const PagePrevNextLinking = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     validate: () => {
       const newErrors = {};
-      const urlRegex = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
 
       if (values.prevPageTitle.trim() !== "") {
         if (values.prevPageLink.trim() === "") {
