@@ -9,6 +9,10 @@ import {
 import { Button } from "antd";
 import CodeDisplay from "../../../components/code-display/CodeDisplay";
 import { CreateCardsWithOffers } from "../../../generators/widgets/static-widgets/cards-with-offers/CreateCardsWithOffers";
+import WidgetStaticPreview from "../../../components/preview/widget-preview/static-preview/WidgetStaticPreview";
+
+import cardsWithOffersDesktop from "../../../assets/images/widgets/cardsWithOffers-desktop.png";
+import cardsWithOffersMobile from "../../../assets/images/widgets/cardsWithOffers-mobile.png";
 
 export default function ExcursionPageGenerator() {
   const pageTitle = "Cards with offers";
@@ -94,6 +98,10 @@ export default function ExcursionPageGenerator() {
         <meta name="title" content={pageTitle} />
       </Helmet>
       <h1 className="regular28">Cards with offers generator</h1>
+      <WidgetStaticPreview
+        desktopImage={cardsWithOffersDesktop}
+        mobileImage={cardsWithOffersMobile}
+      />
       <WidgetContent ref={widgetContentRef} content={content} />
       <Button
         onClick={handleSubmit}
