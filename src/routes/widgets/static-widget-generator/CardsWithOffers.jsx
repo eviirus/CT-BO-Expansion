@@ -8,6 +8,7 @@ import {
 } from "../../../constants/alertMessages";
 import { Button } from "antd";
 import CodeDisplay from "../../../components/code-display/CodeDisplay";
+import { CreateCardsWithOffers } from "../../../generators/widgets/static-widgets/cards-with-offers/CreateCardsWithOffers";
 
 export default function ExcursionPageGenerator() {
   const pageTitle = "Cards with offers";
@@ -70,16 +71,19 @@ export default function ExcursionPageGenerator() {
       return;
     }
     const widgetContentValues = widgetContentRef.current?.getValues?.();
-    console.log("content", widgetContentValues);
-    // const excursionPageHtml = CreateExcursionPage({
-    //   heroContent: heroRefValues,
-    //   bodyContent: bodyContentValues,
-    //   pagePrevNextLinkingContent: pagePrevNextLinkingValues,
-    // });
-    // setGeneratedHtml(excursionPageHtml);
-    // setTimeout(() => {
-    //   codeDisplayRef.current?.scrollIntoView({ behavior: "smooth" });
-    // }, 100);
+
+    const cardsWithOffersHtml = CreateCardsWithOffers({
+      title: widgetContentValues.title,
+      description: widgetContentValues.description,
+      button: widgetContentValues.button,
+      image: widgetContentValues.image,
+    });
+
+    setGeneratedHtml(cardsWithOffersHtml);
+
+    setTimeout(() => {
+      codeDisplayRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
     showSuccess(generateSuccessMessage);
   };
   return (
