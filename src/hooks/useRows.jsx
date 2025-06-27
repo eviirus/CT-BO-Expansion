@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import generateUniqueId from "../utils/GenerateUniqueId";
 
 export function useRows(initialRows = []) {
   const [rows, setRows] = useState(initialRows);
@@ -7,7 +8,7 @@ export function useRows(initialRows = []) {
     setRows((prev) => [
       ...prev,
       {
-        key: prev.length,
+        key: generateUniqueId(),
         ...extraData,
       },
     ]);
