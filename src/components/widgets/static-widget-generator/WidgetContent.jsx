@@ -35,15 +35,18 @@ const WidgetContent = forwardRef(({ content }, ref) => {
     },
 
     getValues: () => {
-      const values = {};
+      const values = {
+        title: {},
+        description: {},
+        button: {},
+        image: {},
+      };
 
       for (const key of Object.keys(titleContent.current)) {
-        values[key] = {
-          title: titleContent.current[key]?.getValues?.() || {},
-          description: descriptionContent.current[key]?.getValues?.() || {},
-          button: buttonContent.current[key]?.getValues?.() || {},
-          image: imageContent.current[key]?.getValues?.() || {},
-        };
+        values.title[key] = titleContent.current[key]?.getValues();
+        values.description[key] = descriptionContent.current[key]?.getValues();
+        values.button[key] = buttonContent.current[key]?.getValues();
+        values.image[key] = imageContent.current[key]?.getValues();
       }
 
       return values;
