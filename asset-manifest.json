@@ -1,23 +1,27 @@
 {
   "files": {
     "main.css": "/CT-BO-Expansion/static/css/main.1bcee8f4.css",
-    "main.js": "/CT-BO-Expansion/static/js/main.5c98b692.js",
+    "main.js": "/CT-BO-Expansion/static/js/main.223bf5e8.js",
     "static/css/103.2a7ff0f1.chunk.css": "/CT-BO-Expansion/static/css/103.2a7ff0f1.chunk.css",
     "static/js/103.217c4bed.chunk.js": "/CT-BO-Expansion/static/js/103.217c4bed.chunk.js",
-    "static/js/859.b297ab8f.chunk.js": "/CT-BO-Expansion/static/js/859.b297ab8f.chunk.js",
+    "static/js/459.d4699a8a.chunk.js": "/CT-BO-Expansion/static/js/459.d4699a8a.chunk.js",
     "static/js/453.68693753.chunk.js": "/CT-BO-Expansion/static/js/453.68693753.chunk.js",
     "static/js/533.bceafe3c.chunk.js": "/CT-BO-Expansion/static/js/533.bceafe3c.chunk.js",
+    "static/js/687.84a3a279.chunk.js": "/CT-BO-Expansion/static/js/687.84a3a279.chunk.js",
+    "static/media/cardsWithOffers-desktop.png": "/CT-BO-Expansion/static/media/cardsWithOffers-desktop.e9fbe542f8b68bb6d9b9.png",
+    "static/media/cardsWithOffers-mobile.png": "/CT-BO-Expansion/static/media/cardsWithOffers-mobile.184a544219ae33eb6090.png",
     "index.html": "/CT-BO-Expansion/index.html",
     "main.1bcee8f4.css.map": "/CT-BO-Expansion/static/css/main.1bcee8f4.css.map",
-    "main.5c98b692.js.map": "/CT-BO-Expansion/static/js/main.5c98b692.js.map",
+    "main.223bf5e8.js.map": "/CT-BO-Expansion/static/js/main.223bf5e8.js.map",
     "103.2a7ff0f1.chunk.css.map": "/CT-BO-Expansion/static/css/103.2a7ff0f1.chunk.css.map",
     "103.217c4bed.chunk.js.map": "/CT-BO-Expansion/static/js/103.217c4bed.chunk.js.map",
-    "859.b297ab8f.chunk.js.map": "/CT-BO-Expansion/static/js/859.b297ab8f.chunk.js.map",
+    "459.d4699a8a.chunk.js.map": "/CT-BO-Expansion/static/js/459.d4699a8a.chunk.js.map",
     "453.68693753.chunk.js.map": "/CT-BO-Expansion/static/js/453.68693753.chunk.js.map",
-    "533.bceafe3c.chunk.js.map": "/CT-BO-Expansion/static/js/533.bceafe3c.chunk.js.map"
+    "533.bceafe3c.chunk.js.map": "/CT-BO-Expansion/static/js/533.bceafe3c.chunk.js.map",
+    "687.84a3a279.chunk.js.map": "/CT-BO-Expansion/static/js/687.84a3a279.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1bcee8f4.css",
-    "static/js/main.5c98b692.js"
+    "static/js/main.223bf5e8.js"
   ]
 }
